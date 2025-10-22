@@ -5,7 +5,7 @@ Oddball[] jelly = new Oddball[50];
 void setup()
 {
   size(1000,1000);
-  background(104, 161, 178);
+  //background(104, 161, 178);
   //default background
   noStroke();
   for (int i = 0; i < marine.length; i++) {
