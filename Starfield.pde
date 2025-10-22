@@ -62,8 +62,19 @@ class Oddball extends Particle{//inherits from Particle
     partX = x;
     partY = y;
     partSpeed = speed;
-    partAngle = angle;
-    
-    
+    partAngle = angle; 
   }
+  
+  void show() {
+  noStroke();
+  ellipse((int)partX,(int)partY,40,30);
+  rect((int)partX-20, (int)partY, 40, 15, 0, 0, 100, 100);
+  noFill();
+  stroke(255,255,255,5);
+  strokeWeight(5);
+  bezier((int)partX+10, (int)partY+10, (int)partX+15, (int)partY+20, (int)partX+5, (int)partY+30, (int)partX+10, (int)partY+40);
+  bezier((int)partX-10, (int)partY+10, (int)partX-15, (int)partY+20, (int)partX-5, (int)partY+30, (int)partX-10, (int)partY+40);
+  bezier((int)partX+2.5, (int)partY+10, (int)partX+5, (int)partY+20, (int)partX+1.25, (int)partY+30, (int)partX+2.5, (int)partY+40);
+  bezier((int)partX-2.5, (int)partY-10, (int)partX-5, (int)partY-20, (int)partX-1.25, (int)partY+30, (int)partX-2.5, (int)partY+40);
+ }
 }
