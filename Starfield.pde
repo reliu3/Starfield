@@ -6,7 +6,6 @@ void setup()
 {
   size(1000,1000);
   //background(104, 161, 178);
-  //default background
   noStroke();
   for (int i = 0; i < marine.length; i++) {
     marine[i] = new Particle((Math.random()*(width+1)), (Math.random()*(height+1)), (Math.random()+0.05), radians((float)(Math.random()*361)), (int)((Math.random()*10)+1));
