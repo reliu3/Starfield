@@ -5,6 +5,7 @@ void setup()
 {
   size(1000,1000);
   background(104, 161, 178);
+  //default background
   noStroke();
   for (int i = 0; i < marine.length; i++) {
     marine[i] = new Particle((Math.random()*(width+1)), (Math.random()*(height+1)), (Math.random()+0.05), radians((float)(Math.random()*361)), (int)((Math.random()*10)+1));
@@ -15,7 +16,8 @@ void setup()
 
 void draw()
 {
-  background(104, 161, 178);
+  background((mouseX/40)+86, (mouseY/67)+145, ((mouseX+mouseY)/50)+160);
+  System.out.println(((mouseX+mouseY)/50)+160);
   for (int i = 0; i < marine.length; i++) {
     marine[i].move();
     marine[i].show();
