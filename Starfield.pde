@@ -1,17 +1,17 @@
-Particle[] marine = new Particle[750];
-Oddball[] jelly = new Oddball[50];
+Particle[] marine = new Particle[800];
 
 
 void setup()
 {
   size(1000,1000);
   //background(104, 161, 178);
+  //default background
   noStroke();
-  for (int i = 0; i < marine.length; i++) {
-    marine[i] = new Particle((Math.random()*(width+1)), (Math.random()*(height+1)), (Math.random()+0.05), radians((float)(Math.random()*361)), (int)((Math.random()*10)+1));
+  for (int i = 0; i < 750; i++) {
+    marine[i] = new Particle();
   }
-  for (int i = 0; i < jelly.length; i++) {
-    jelly[i] = new Oddball((Math.random()*(width+1)), (Math.random()*(height+1)), (Math.random()+0.05), radians((float)(Math.random()*361)));
+  for (int i = 750; i < marine.length; i++) {
+    marine[i] = new Oddball();
   }
 }
 
@@ -24,28 +24,21 @@ void draw()
     marine[i].move();
     marine[i].show();
   }
-  for (int i = 0; i < jelly.length; i++) {
-    jelly[i].move();
-    jelly[i].show();
-  }
 }
 
 
 
 class Particle
 {
-  double partX, partY, partSpeed, partAngle;
-  int partColor, partSize;
-  Particle(double x, double y, double speed, double angle, int size) { //constructor
-    partX = x;
-    partY = y; 
-    partSpeed = speed;
-    partAngle = angle;
-    partSize = size;
-    partColor = color((int)((Math.random()*56)+200), (int)((Math.random()*46)+210), (int)((Math.random()*36)+220), (int)((Math.random()*26)+50));
-  }
+  double partX, partY, partSpeed, partAngle, partSize;
+  int partColor;
   Particle() { //constructor
-    //for extends
+    partX = Math.random()*(width+1);
+    partY = Math.random()*(height+1); 
+    partSpeed = Math.random()+0.05;
+    partAngle = radians((float)(Math.random()*361));
+    partSize = (Math.random()*10)+1;
+    partColor = color((int)((Math.random()*56)+200), (int)((Math.random()*46)+210), (int)((Math.random()*36)+220), (int)((Math.random()*26)+50));
   }
   void move() {
     if(partX>= width - 5||partY >= height -5 || partX <= 5 || partY <= 5) {
@@ -58,17 +51,17 @@ class Particle
   }
   void show() {
      fill(partColor);
-     ellipse((float)partX, (float)partY, partSize, partSize);
+     ellipse((float)partX, (float)partY, (float)partSize, (float)partSize);
   }
 }
 
 class Oddball extends Particle{//inherits from Particle
   
-  Oddball(double x, double y, double speed, double angle) {
-    partX = x;
-    partY = y;
-    partSpeed = speed;
-    partAngle = angle; 
+  Oddball() {
+    partX = Math.random()*(width+1);
+    partY = Math.random()*(height+1);
+    partSpeed = Math.random()+0.05;
+    partAngle = radians((float)(Math.random()*361)); 
   }
   void move() {
     if(partX>= width - 5||partY >= height -5 || partX <= 5 || partY <= 5) {
