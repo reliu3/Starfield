@@ -20,7 +20,6 @@ void setup()
 void draw()
 {
   background((mouseX/40)+86, (mouseY/67)+145, ((mouseX+mouseY)/50)+160);
-  System.out.println(((mouseX+mouseY)/50)+160);
   for (int i = 0; i < marine.length; i++) {
     marine[i].move();
     marine[i].show();
